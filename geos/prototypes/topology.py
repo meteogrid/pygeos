@@ -8,10 +8,10 @@ __all__ = ['geos_boundary', 'geos_buffer', 'geos_centroid', 'geos_convexhull',
            'geos_simplify', 'geos_symdifference', 'geos_union', 'geos_relate']
 
 from ctypes import c_double, c_int
-from django.contrib.gis.geos.libgeos import GEOM_PTR, GEOS_PREPARE
-from django.contrib.gis.geos.prototypes.errcheck import check_geom, check_string
-from django.contrib.gis.geos.prototypes.geom import geos_char_p
-from django.contrib.gis.geos.prototypes.threadsafe import GEOSFunc
+from ..libgeos import GEOM_PTR, GEOS_PREPARE
+from .errcheck import check_geom, check_string
+from .geom import geos_char_p
+from .threadsafe import GEOSFunc
 
 def topology(func, *args):
     "For GEOS unary topology functions."

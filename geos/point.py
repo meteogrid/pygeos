@@ -1,7 +1,7 @@
 from ctypes import c_uint
-from django.contrib.gis.geos.error import GEOSException
-from django.contrib.gis.geos.geometry import GEOSGeometry
-from django.contrib.gis.geos import prototypes as capi
+from .error import GEOSException
+from .geometry import GEOSGeometry
+import geos.prototypes as capi
 
 class Point(GEOSGeometry):
     _minlength = 2

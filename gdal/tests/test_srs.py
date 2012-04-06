@@ -1,5 +1,5 @@
-from django.contrib.gis.gdal import SpatialReference, CoordTransform, OGRException, SRSException
-from django.utils import unittest
+from _geos_gdal import SpatialReference, CoordTransform, OGRException, SRSException
+import unittest
 
 
 class TestSRS:

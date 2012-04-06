@@ -1,6 +1,6 @@
 from ctypes import c_void_p
 from types import NoneType
-from django.contrib.gis.gdal.error import GDALException
+from .error import GDALException
 
 class GDALBase(object):
     """

@@ -3,10 +3,10 @@
  ones that return the area, distance, and length.
 """
 from ctypes import c_int, c_double, POINTER
-from django.contrib.gis.geos.libgeos import GEOM_PTR, GEOS_PREPARE
-from django.contrib.gis.geos.prototypes.errcheck import check_dbl, check_string
-from django.contrib.gis.geos.prototypes.geom import geos_char_p
-from django.contrib.gis.geos.prototypes.threadsafe import GEOSFunc
+from ..libgeos import GEOM_PTR, GEOS_PREPARE
+from .errcheck import check_dbl, check_string
+from .geom import geos_char_p
+from .threadsafe import GEOSFunc
 
 __all__ = ['geos_area', 'geos_distance', 'geos_length']
 

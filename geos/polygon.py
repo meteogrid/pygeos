@@ -1,8 +1,8 @@
 from ctypes import c_uint, byref
-from django.contrib.gis.geos.geometry import GEOSGeometry
-from django.contrib.gis.geos.libgeos import get_pointer_arr, GEOM_PTR
-from django.contrib.gis.geos.linestring import LinearRing
-from django.contrib.gis.geos import prototypes as capi
+from .geometry import GEOSGeometry
+from .libgeos import get_pointer_arr, GEOM_PTR
+from .linestring import LinearRing
+import geos.prototypes as capi
 
 class Polygon(GEOSGeometry):
     _minlength = 1

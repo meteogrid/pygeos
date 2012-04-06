@@ -1,5 +1,5 @@
-from django.contrib.gis.gdal import Envelope, OGRException
-from django.utils import unittest
+from _geos_gdal import Envelope, OGRException
+import unittest
 
 
 class TestPoint(object):

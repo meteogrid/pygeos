@@ -2,7 +2,7 @@
   The Spatial Reference class, represensents OGR Spatial Reference objects.
 
   Example:
-  >>> from django.contrib.gis.gdal import SpatialReference
+  >>> from _geos_gdal import SpatialReference
   >>> srs = SpatialReference('WGS84')
   >>> print srs
   GEOGCS["WGS 84",
@@ -29,9 +29,9 @@
 from ctypes import byref, c_char_p, c_int
 
 # Getting the error checking routine and exceptions
-from django.contrib.gis.gdal.base import GDALBase
-from django.contrib.gis.gdal.error import SRSException
-from django.contrib.gis.gdal.prototypes import srs as capi
+from .base import GDALBase
+from .error import SRSException
+from .prototypes import srs as capi
 
 #### Spatial Reference class. ####
 class SpatialReference(GDALBase):

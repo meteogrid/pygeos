@@ -3,8 +3,8 @@
  ctypes prototypes.
 """
 from ctypes import c_void_p, string_at
-from django.contrib.gis.gdal.error import check_err, OGRException, SRSException
-from django.contrib.gis.gdal.libgdal import lgdal
+from ..error import check_err, OGRException, SRSException
+from ..libgdal import lgdal
 
 # Helper routines for retrieving pointers and/or values from 
 # arguments passed in by reference. 

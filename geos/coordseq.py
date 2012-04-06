@@ -4,10 +4,10 @@
  LineString, and LinearRing geometries.
 """
 from ctypes import c_double, c_uint, byref
-from django.contrib.gis.geos.base import GEOSBase, numpy
-from django.contrib.gis.geos.error import GEOSException, GEOSIndexError
-from django.contrib.gis.geos.libgeos import CS_PTR
-from django.contrib.gis.geos import prototypes as capi
+from .base import GEOSBase, numpy
+from .error import GEOSException, GEOSIndexError
+from .libgeos import CS_PTR
+import geos.prototypes as capi
 
 class GEOSCoordSeq(GEOSBase):
     "The internal representation of a list of coordinates inside a Geometry."

@@ -7,26 +7,26 @@ import warnings
 from ctypes import addressof, byref, c_double
 
 # super-class for mutable list behavior
-from django.contrib.gis.geos.mutable_list import ListMixin
+from .mutable_list import ListMixin
 
 # GEOS-related dependencies.
-from django.contrib.gis.geos.base import GEOSBase, gdal
-from django.contrib.gis.geos.coordseq import GEOSCoordSeq
-from django.contrib.gis.geos.error import GEOSException, GEOSIndexError
-from django.contrib.gis.geos.libgeos import GEOM_PTR, GEOS_PREPARE
-from django.contrib.gis.geos.mutable_list import ListMixin
+from .base import GEOSBase, gdal
+from .coordseq import GEOSCoordSeq
+from .error import GEOSException, GEOSIndexError
+from .libgeos import GEOM_PTR, GEOS_PREPARE
+from .mutable_list import ListMixin
 
 # All other functions in this module come from the ctypes
 # prototypes module -- which handles all interaction with
 # the underlying GEOS library.
-from django.contrib.gis.geos import prototypes as capi
+import geos.prototypes as capi
 
 # These functions provide access to a thread-local instance
 # of their corresponding GEOS I/O class.
-from django.contrib.gis.geos.prototypes.io import wkt_r, wkt_w, wkb_r, wkb_w, ewkb_w, ewkb_w3d
+from .prototypes.io import wkt_r, wkt_w, wkb_r, wkb_w, ewkb_w, ewkb_w3d
 
 # For recognizing geometry input.
-from django.contrib.gis.geometry.regex import hex_regex, wkt_regex, json_regex
+from _geos_geometry.regex import hex_regex, wkt_regex, json_regex
 
 class GEOSGeometry(GEOSBase, ListMixin):
     "A class that, generally, encapsulates a GEOS geometry."
@@ -668,10 +668,10 @@ class GEOSGeometry(GEOSBase, ListMixin):
 
 # Class mapping dictionary.  Has to be at the end to avoid import
 # conflicts with GEOSGeometry.
-from django.contrib.gis.geos.linestring import LineString, LinearRing
-from django.contrib.gis.geos.point import Point
-from django.contrib.gis.geos.polygon import Polygon
-from django.contrib.gis.geos.collections import GeometryCollection, MultiPoint, MultiLineString, MultiPolygon
+from .linestring import LineString, LinearRing
+from .point import Point
+from .polygon import Polygon
+from .collections import GeometryCollection, MultiPoint, MultiLineString, MultiPolygon
 GEOS_CLASSES = {0 : Point,
                 1 : LineString,
                 2 : LinearRing,
@@ -684,4 +684,4 @@ GEOS_CLASSES = {0 : Point,
 
 # If supported, import the PreparedGeometry class.
 if GEOS_PREPARE:
-    from django.contrib.gis.geos.prepared import PreparedGeometry
+    from .prepared import PreparedGeometry

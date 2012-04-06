@@ -3,8 +3,8 @@
 #
 # Modified from original contribution by Aryeh Leib Taurog, which was
 # released under the New BSD license.
-from django.contrib.gis.geos.mutable_list import ListMixin
-from django.utils import unittest
+from geos.mutable_list import ListMixin
+import unittest
 
 
 class UserListA(ListMixin):

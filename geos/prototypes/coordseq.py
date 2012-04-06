@@ -1,7 +1,7 @@
 from ctypes import c_double, c_int, c_uint, POINTER
-from django.contrib.gis.geos.libgeos import GEOM_PTR, CS_PTR
-from django.contrib.gis.geos.prototypes.errcheck import last_arg_byref, GEOSException
-from django.contrib.gis.geos.prototypes.threadsafe import GEOSFunc
+from ..libgeos import GEOM_PTR, CS_PTR
+from .errcheck import last_arg_byref, GEOSException
+from .threadsafe import GEOSFunc
 
 ## Error-checking routines specific to coordinate sequences. ##
 def check_cs_ptr(result, func, cargs):

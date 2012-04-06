@@ -10,7 +10,7 @@
  for spatial reference systems and their transformation.
 
  Example:
-  >>> from django.contrib.gis.gdal import OGRGeometry, OGRGeomType, SpatialReference
+  >>> from _geos_gdal import OGRGeometry, OGRGeomType, SpatialReference
   >>> wkt1, wkt2 = 'POINT(-90 30)', 'POLYGON((0 0, 5 0, 5 5, 0 5)'
   >>> pnt = OGRGeometry(wkt1)
   >>> print pnt
@@ -31,7 +31,7 @@
   MULTIPOINT (-89.999930378602485 29.999797886557641,-89.999930378602485 29.999797886557641)
 
   The OGRGeomType class is to make it easy to specify an OGR geometry type:
-  >>> from django.contrib.gis.gdal import OGRGeomType
+  >>> from _geos_gdal import OGRGeomType
   >>> gt1 = OGRGeomType(3) # Using an integer for the type
   >>> gt2 = OGRGeomType('Polygon') # Using a string
   >>> gt3 = OGRGeomType('POLYGON') # It's case-insensitive
@@ -44,18 +44,18 @@ from binascii import a2b_hex
 from ctypes import byref, string_at, c_char_p, c_double, c_ubyte, c_void_p
 
 # Getting GDAL prerequisites
-from django.contrib.gis.gdal.base import GDALBase
-from django.contrib.gis.gdal.envelope import Envelope, OGREnvelope
-from django.contrib.gis.gdal.error import OGRException, OGRIndexError, SRSException
-from django.contrib.gis.gdal.geomtype import OGRGeomType
-from django.contrib.gis.gdal.libgdal import GEOJSON, GDAL_VERSION
-from django.contrib.gis.gdal.srs import SpatialReference, CoordTransform
+from .base import GDALBase
+from .envelope import Envelope, OGREnvelope
+from .error import OGRException, OGRIndexError, SRSException
+from .geomtype import OGRGeomType
+from .libgdal import GEOJSON, GDAL_VERSION
+from .srs import SpatialReference, CoordTransform
 
 # Getting the ctypes prototype functions that interface w/the GDAL C library.
-from django.contrib.gis.gdal.prototypes import geom as capi, srs as srs_api
+from .prototypes import geom as capi, srs as srs_api
 
 # For recognizing geometry input.
-from django.contrib.gis.geometry.regex import hex_regex, wkt_regex, json_regex
+from _geos_geometry.regex import hex_regex, wkt_regex, json_regex
 
 # For more information, see the OGR C API source code:
 #  http://www.gdal.org/ogr/ogr__api_8h.html
@@ -311,7 +311,7 @@ class OGRGeometry(GDALBase):
     @property
     def geos(self):
         "Returns a GEOSGeometry object from this OGRGeometry."
-        from django.contrib.gis.geos import GEOSGeometry
+        from geos import GEOSGeometry
         return GEOSGeometry(self.wkb, self.srid)
 
     @property

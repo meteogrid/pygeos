@@ -11,7 +11,7 @@ import re
 import sys
 from ctypes import c_char_p, Structure, CDLL, CFUNCTYPE, POINTER
 from ctypes.util import find_library
-from django.contrib.gis.geos.error import GEOSException
+from .error import GEOSException
 
 # Custom library path set?
 try:

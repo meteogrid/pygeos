@@ -1,4 +1,4 @@
-from django.contrib.gis.geos.geometry import GEOSGeometry, wkt_regex, hex_regex
+from .geometry import GEOSGeometry, wkt_regex, hex_regex
 
 def fromfile(file_h):
     """

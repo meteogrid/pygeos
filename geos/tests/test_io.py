@@ -1,6 +1,6 @@
 import binascii
 import unittest
-from django.contrib.gis.geos import GEOSGeometry, WKTReader, WKTWriter, WKBReader, WKBWriter, geos_version_info
+from geos import GEOSGeometry, WKTReader, WKTWriter, WKBReader, WKBWriter, geos_version_info
 
 class GEOSIOTest(unittest.TestCase):
 

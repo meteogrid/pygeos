@@ -11,7 +11,7 @@
  Lower left (min_x, min_y) o----------+
 """
 from ctypes import Structure, c_double
-from django.contrib.gis.gdal.error import OGRException
+from .error import OGRException
 
 # The OGR definition of an Envelope is a C structure containing four doubles.
 #  See the 'ogr_core.h' source file for more information:

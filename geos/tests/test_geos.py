@@ -1,10 +1,10 @@
 import ctypes
 import random
 import unittest
-from django.contrib.gis.geos import *
-from django.contrib.gis.geos.base import gdal, numpy, GEOSBase
-from django.contrib.gis.geos.libgeos import GEOS_PREPARE
-from django.contrib.gis.geometry.test_data import TestDataMixin
+from geos import *
+from geos.base import gdal, numpy, GEOSBase
+from geos.libgeos import GEOS_PREPARE
+from _geos_geometry.test_data import TestDataMixin
 
 class GEOSTest(unittest.TestCase, TestDataMixin):
 
@@ -1051,7 +1051,7 @@ class GEOSTest(unittest.TestCase, TestDataMixin):
 
     def test28_geos_version(self):
         "Testing the GEOS version regular expression."
-        from django.contrib.gis.geos.libgeos import version_regex
+        from geos.libgeos import version_regex
         versions = [ ('3.0.0rc4-CAPI-1.3.3', '3.0.0'),
                      ('3.0.0-CAPI-1.4.1', '3.0.0'),
                      ('3.4.0dev-CAPI-1.8.0', '3.4.0') ]

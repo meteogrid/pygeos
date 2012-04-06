@@ -1,11 +1,11 @@
 # The GDAL C library, OGR exception, and the Field object
-from django.contrib.gis.gdal.base import GDALBase
-from django.contrib.gis.gdal.error import OGRException, OGRIndexError
-from django.contrib.gis.gdal.field import Field
-from django.contrib.gis.gdal.geometries import OGRGeometry, OGRGeomType
+from .base import GDALBase
+from .error import OGRException, OGRIndexError
+from .field import Field
+from .geometries import OGRGeometry, OGRGeomType
 
 # ctypes function prototypes
-from django.contrib.gis.gdal.prototypes import ds as capi, geom as geom_api
+from .prototypes import ds as capi, geom as geom_api
 
 # For more information, see the OGR C API source code:
 #  http://www.gdal.org/ogr/ogr__api_8h.html
