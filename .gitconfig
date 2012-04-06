@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+[svn-remote "svn"]
+	ignore-paths = ^([^/]*.py|admin|db|.*forms|geoip|geometry/backend|locale|management|maps|sitemaps|templates|utils|tests/([^/]*.py|distapp|geo3d|geoadmin|geoapp|geogapp|inspectapp|layermap|relatedapp))
+	url = https://code.djangoproject.com/svn/django/trunk/django/contrib/gis
+	fetch = :refs/remotes/git-svn
+[remote "origin"]
+	url = git@github.com:meteogrid/pygeos
+	fetch = +refs/heads/*:refs/remotes/origin/*
