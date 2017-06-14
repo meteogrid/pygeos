@@ -1,6 +1,7 @@
 import ctypes
 import random
 import unittest
+import json
 from geos import *
 from geos.base import gdal, numpy, GEOSBase
 from geos.libgeos import GEOS_PREPARE
@@ -197,8 +198,8 @@ class GEOSTest(unittest.TestCase, TestDataMixin):
         for g in self.geometries.json_geoms:
             geom = GEOSGeometry(g.wkt)
             if not hasattr(g, 'not_equal'):
-                self.assertEqual(g.json, geom.json)
-                self.assertEqual(g.json, geom.geojson)
+                self.assertEqual(json.loads(g.json), json.loads(geom.json))
+                self.assertEqual(json.loads(g.json), json.loads(geom.geojson))
             self.assertEqual(GEOSGeometry(g.wkt), GEOSGeometry(geom.json))
 
     def test01k_fromfile(self):

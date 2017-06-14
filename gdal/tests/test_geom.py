@@ -8,6 +8,7 @@ from _geos_gdal import (OGRGeometry, OGRGeomType, OGRException,
     OGRIndexError, SpatialReference, CoordTransform, GDAL_VERSION)
 from _geos_gdal.prototypes.geom import GEOJSON
 from _geos_geometry.test_data import TestDataMixin
+import json
 import unittest
 
 class OGRGeomTest(unittest.TestCase, TestDataMixin):
@@ -112,8 +113,8 @@ class OGRGeomTest(unittest.TestCase, TestDataMixin):
         for g in self.geometries.json_geoms:
             geom = OGRGeometry(g.wkt)
             if not hasattr(g, 'not_equal'):
-                self.assertEqual(g.json, geom.json)
-                self.assertEqual(g.json, geom.geojson)
+                self.assertEqual(json.loads(g.json), json.loads(geom.json))
+                self.assertEqual(json.loads(g.json), json.loads(geom.geojson))
             self.assertEqual(OGRGeometry(g.wkt), OGRGeometry(geom.json))
 
     def test02_points(self):
